@@ -2,83 +2,101 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 st.set_page_config(
-    page_title="The Grand Celebration | Muhammad & Areeba",
-    page_icon="🌿",
-    layout="centered",
+    page_title="Muhammad Abdul Rashid & Areeba Fatima | The Grand Celebration",
+    page_icon="💍",
+    layout="wide",
     initial_sidebar_state="collapsed",
 )
 
-INVITATION_HTML = r"""<!DOCTYPE html>
+st.markdown("""
+<style>
+#MainMenu, footer, header, [data-testid="stToolbar"] {visibility:hidden; height:0;}
+.stApp { background:#f4f0e7; }
+.block-container { padding:0 !important; max-width:100% !important; }
+iframe { border:0 !important; }
+</style>
+""", unsafe_allow_html=True)
+
+INVITATION_HTML = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#d8ed9b">
+<meta name="theme-color" content="#203b31">
 <title>The Grand Celebration | Muhammad & Areeba</title>
 <style>
-:root{color-scheme:light;--leaf:#657b62;--lime:#dce6d3;--deep:#344b3b;--paper:#fffdf8;--ink:#344b3b;--muted:#788675;--line:#c5d1bd}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Georgia,'Times New Roman',serif;background:#f1f3eb;color:var(--ink)}
-button,a{font:inherit}
-.canvas{min-height:100vh;width:100%;padding:clamp(18px,5vw,58px) 16px;background:#f1f3eb;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.canvas:before,.canvas:after{position:absolute;color:#a8bca3;font-size:clamp(100px,20vw,230px);opacity:.25;line-height:1;pointer-events:none;font-family:Georgia,serif}
-.canvas:before{content:'❧';top:1%;left:-2%;transform:rotate(-32deg)}.canvas:after{content:'❧';bottom:0;right:-2%;transform:rotate(148deg)}
-.invite{width:min(100%,720px);position:relative;background:var(--paper);border:1px solid var(--line);padding:clamp(28px,6vw,66px) clamp(22px,7vw,76px);text-align:center;box-shadow:0 24px 70px #344b3b18;isolation:isolate}
-.invite:before{content:'';position:absolute;inset:10px;border:1px solid #dce4d5;pointer-events:none;z-index:-1}
-.kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:var(--leaf);font-weight:600}
-.flourish{display:flex;align-items:center;justify-content:center;gap:13px;color:#849b7e;margin:19px 0 22px}.flourish span{width:54px;height:1px;background:#c5d1bd}.flourish b{font-size:21px;font-weight:400}
-.intro{font-size:clamp(15px,2vw,18px);line-height:1.7;color:#52614a;margin:0 auto 22px;max-width:440px}
-.names{font-size:clamp(34px,7vw,58px);line-height:1.08;font-weight:400;letter-spacing:-.035em;color:var(--deep);margin:0}
-.amp{font-size:clamp(26px,5vw,40px);font-style:italic;color:#849b7e;line-height:1.4;margin:5px 0}
-.family{font-size:14px;line-height:1.5;color:#68755e;margin:9px 0 17px;font-style:italic}
-.date{font-size:clamp(20px,4vw,27px);letter-spacing:.06em;color:var(--deep);margin:4px 0 8px}
-.venue{font-size:clamp(20px,3.6vw,25px);color:var(--deep);margin:0 0 7px}
-.address{font-family:Arial,sans-serif;font-size:13px;line-height:1.7;color:#68755e;margin:0 auto;max-width:390px}
-.time{display:inline-block;margin:21px 0 0;padding:9px 19px;border-top:1px solid #c5d1bd;border-bottom:1px solid #c5d1bd;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--leaf)}
-.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:27px 0 0}
-.action{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;padding:11px 16px;text-decoration:none;border:1px solid #aabca4;color:var(--leaf);font-family:Arial,sans-serif;font-size:12px;letter-spacing:.04em;transition:background .2s,color .2s;cursor:pointer;background:transparent}
-.action.primary{background:var(--leaf);color:#fff;border-color:var(--leaf)}.action:hover{background:var(--lime);color:var(--deep);border-color:var(--lime)}
-.rule{width:56px;height:1px;background:#c5d1bd;margin:28px auto 18px}
-.host-title{font-size:15px;font-style:italic;color:#52614a;margin:0 0 10px}.hosts{font-family:Arial,sans-serif;font-size:12px;line-height:1.9;color:#66745c;margin:0}
-.contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}.contacts a{font-family:Arial,sans-serif;font-size:12px;color:var(--leaf);text-decoration:none;border-bottom:1px solid #b5c98e;padding-bottom:2px}
-.footer{font-family:Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:.22em;color:#89987a;margin-top:30px}
-@media(prefers-reduced-motion:no-preference){.invite{animation:arrive .8s ease-out both}@keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}}
-@media(max-width:420px){.actions{flex-direction:column}.action{width:100%}.invite{padding-left:23px;padding-right:23px}.kicker{letter-spacing:.2em}}
+:root{--forest:#203b31;--forest2:#2e4d40;--sage:#9eae91;--gold:#b99a61;--cream:#f7f2e8;--paper:#fffdf7;--ink:#24382f;--muted:#68766b;--line:#d8cfb9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--forest);color:var(--ink);font-family:Georgia,'Times New Roman',serif}a,button{font:inherit}.site{min-height:100vh;background:var(--cream);overflow:hidden}.hero{min-height:94vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px;color:var(--cream);background:radial-gradient(ellipse at 50% 40%,#456451 0%,#2e4d40 38%,#203b31 78%);isolation:isolate}.hero:before,.hero:after{content:'❧';position:absolute;color:#c5b27e;opacity:.24;font-size:clamp(180px,33vw,420px);line-height:1;pointer-events:none;z-index:-1}.hero:before{top:-70px;left:-75px;transform:rotate(-35deg)}.hero:after{bottom:-90px;right:-70px;transform:rotate(145deg)}.hero-inner{width:min(100%,780px);padding:clamp(32px,6vw,76px) 20px;border:1px solid #b99a6177;outline:1px solid #b99a6133;outline-offset:9px;position:relative}.eyebrow{font:600 10px/1.8 Arial,sans-serif;text-transform:uppercase;letter-spacing:.34em;color:#d9c79a}.small-flourish{color:var(--gold);font-size:25px;margin:17px 0}.hero h1{font-weight:400;font-size:clamp(43px,9vw,88px);line-height:1.02;letter-spacing:-.045em;margin:12px 0;color:#fffaf0}.hero .amp{font-size:clamp(27px,5vw,44px);font-style:italic;color:#d4bd86;margin:8px 0}.hero .sub{font-size:clamp(14px,2vw,18px);line-height:1.8;color:#e4e4d8;margin:22px auto 0;max-width:480px}.hero-date{font:11px Arial,sans-serif;text-transform:uppercase;letter-spacing:.22em;color:#d9c79a;margin-top:28px}.scroll-cue{position:absolute;bottom:24px;left:0;right:0;font:10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.25em;color:#e2d6b7;opacity:.8}.section{padding:76px 20px;text-align:center}.section-inner{max-width:780px;margin:auto}.section-label{font:600 10px Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8d7746}.section h2{font-weight:400;font-size:clamp(32px,6vw,54px);line-height:1.15;color:var(--forest);margin:14px 0 18px}.ornament{color:var(--gold);font-size:23px;margin:18px 0}.familyline{font-style:italic;color:var(--muted);font-size:15px;margin:7px 0}.invitation-copy{max-width:560px;margin:0 auto;color:#59675c;font-size:16px;line-height:1.9}.details{background:#e9e8dc}.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:32px auto 0;max-width:800px}.detail{border:1px solid #c9cbb9;background:#f8f5ec;padding:24px 14px;min-height:150px;display:flex;flex-direction:column;justify-content:center}.detail .symbol{font-size:24px;color:#a68b50;margin-bottom:12px}.detail .label{font:600 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.2em;color:#7a846f}.detail .value{font-size:20px;color:var(--forest);line-height:1.45;margin-top:9px}.detail .small{font:12px/1.7 Arial,sans-serif;color:#6b7769;margin-top:5px}.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 19px;border:1px solid var(--forest2);text-decoration:none;color:var(--forest);background:transparent;font:600 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:.2s}.btn.primary{background:var(--forest);color:#fffaf0}.btn:hover{background:#d8dfd0;color:var(--forest)}.hosts{background:var(--forest);color:var(--cream)}.hosts .section-label{color:#d4bd86}.hosts h2{color:var(--cream)}.hosts .invitation-copy{color:#dce0d5}.host-names{font-size:clamp(18px,3vw,24px);line-height:1.8;color:#fff8e8}.contact-list{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:25px}.contact-list a{color:#dfd0a6;text-decoration:none;font:12px Arial,sans-serif;border-bottom:1px solid #a58d5a;padding:7px 3px}.footer{text-align:center;padding:24px 15px;background:#182f27;color:#b9c3b4;font:9px Arial,sans-serif;text-transform:uppercase;letter-spacing:.22em}.divider{height:1px;width:70px;background:var(--gold);margin:26px auto}.fade{animation:fadeup .9s ease both}@keyframes fadeup{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.hero{min-height:88vh;padding:28px 18px}.hero-inner{padding:44px 14px}.eyebrow{letter-spacing:.22em}.detail-grid{grid-template-columns:1fr;max-width:360px}.detail{min-height:unset;padding:21px}.section{padding:58px 20px}.buttons{flex-direction:column;max-width:340px;margin-left:auto;margin-right:auto}.btn{width:100%}.hero:before{left:-125px}.hero:after{right:-120px}}
+@media(prefers-reduced-motion:reduce){.fade{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<main class="canvas">
-  <article class="invite" aria-label="The grand celebration invitation">
-    <div class="kicker">With the blessings of our families</div>
-    <div class="flourish" aria-hidden="true"><span></span><b>❧</b><span></span></div>
-    <p class="intro">Together with our families, we joyfully invite you to join us for the grand celebration of</p>
-    <h1 class="names">Muhammad Abdul Rashid</h1>
-    <p class="family">Son of Arshad Rashid</p>
-    <div class="amp">and</div>
-    <h2 class="names">Areeba Fatima</h2>
-    <p class="family">Daughter of Naveed Zahir</p>
-    <div class="flourish" aria-hidden="true"><span></span><b>✧</b><span></span></div>
-    <p class="date">Friday, November 13, 2026</p>
-    <p class="venue">Iconic Marquee</p>
-    <p class="address">76, Block 14, Gulistan-e-Johar<br>Karachi, Pakistan</p>
-    <div class="time">Gathering at 7:30 PM</div>
-    <div class="actions">
-      <a class="action primary" href="https://www.google.com/maps/search/?api=1&query=Iconic+Marquee%2C+76+Block+14%2C+Gulistan-e-Johar%2C+Karachi%2C+Pakistan" target="_blank" rel="noopener">⌖ &nbsp; View venue</a>
-      <button class="action" id="calendarBtn" type="button">＋ &nbsp; Save the date</button>
-      <a class="action" href="https://wa.me/923323178261?text=Assalam-o-Alaikum%2C%20I%20am%20responding%20to%20the%20grand%20celebration%20invitation%20of%20Muhammad%20Abdul%20Rashid%20and%20Areeba%20Fatima." target="_blank" rel="noopener">♡ &nbsp; RSVP on WhatsApp</a>
+<div class="site">
+  <section class="hero">
+    <div class="hero-inner fade">
+      <div class="eyebrow">Together with their families</div>
+      <div class="small-flourish">✦ &nbsp; ❧ &nbsp; ✦</div>
+      <h1>Muhammad Abdul<br>Rashid</h1>
+      <div class="amp">&amp;</div>
+      <h1>Areeba Fatima</h1>
+      <p class="sub">Request the pleasure of your company<br>at <em>The Grand Celebration</em></p>
+      <div class="hero-date">Friday · November 13 · 2026</div>
     </div>
-    <div class="rule"></div>
-    <p class="host-title">With warm regards from</p>
-    <p class="hosts">Arshad Rashid &nbsp;·&nbsp; Amna Arshad &nbsp;·&nbsp; Daniyal Ayub</p>
-    <div class="contacts">
-      <a href="https://wa.me/923323178261" target="_blank" rel="noopener">+92 332 3178261</a>
-      <a href="https://wa.me/923357227454" target="_blank" rel="noopener">+92 335 7227454</a>
-      <a href="https://wa.me/923312151091" target="_blank" rel="noopener">+92 331 2151091</a>
+    <div class="scroll-cue">Scroll to discover &nbsp; ↓</div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">A celebration of two families</div>
+      <div class="ornament">❧</div>
+      <h2>With joy in our hearts</h2>
+      <p class="invitation-copy">With the blessings of our families, we warmly invite you to join us as we celebrate the union of</p>
+      <div class="divider"></div>
+      <h2>Muhammad Abdul Rashid</h2>
+      <p class="familyline">Son of Arshad Rashid</p>
+      <div class="ornament">and</div>
+      <h2>Areeba Fatima</h2>
+      <p class="familyline">Daughter of Naveed Zahir</p>
     </div>
-    <div class="footer">A beautiful beginning · A day to remember</div>
-  </article>
-</main>
+  </section>
+
+  <section class="section details">
+    <div class="section-inner">
+      <div class="section-label">Please join us</div>
+      <h2>The Grand Celebration</h2>
+      <div class="ornament">✧</div>
+      <div class="detail-grid">
+        <div class="detail"><div class="symbol">◷</div><div class="label">Date &amp; Time</div><div class="value">Friday, November 13</div><div class="small">Gathering at 7:30 PM</div></div>
+        <div class="detail"><div class="symbol">⌖</div><div class="label">Venue</div><div class="value">Iconic Marquee</div><div class="small">76, Block 14, Gulistan-e-Johar<br>Karachi, Pakistan</div></div>
+        <div class="detail"><div class="symbol">❧</div><div class="label">With warm regards</div><div class="value">Our Families</div><div class="small">Arshad Rashid · Amna Arshad<br>Daniyal Ayub</div></div>
+      </div>
+      <div class="buttons">
+        <a class="btn primary" href="https://www.google.com/maps/search/?api=1&amp;query=Iconic+Marquee%2C+76+Block+14%2C+Gulistan-e-Johar%2C+Karachi%2C+Pakistan" target="_blank" rel="noopener">⌖ &nbsp; Open venue map</a>
+        <button class="btn" id="calendarBtn" type="button">＋ &nbsp; Save the date</button>
+        <a class="btn" href="https://wa.me/923323178261?text=Assalam-o-Alaikum%2C%20I%20am%20responding%20to%20the%20invitation%20of%20Muhammad%20Abdul%20Rashid%20and%20Areeba%20Fatima." target="_blank" rel="noopener">♡ &nbsp; RSVP on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hosts">
+    <div class="section-inner">
+      <div class="section-label">Your presence will mean a lot</div>
+      <div class="ornament">✦</div>
+      <h2>We look forward to celebrating with you</h2>
+      <p class="invitation-copy">With love and best wishes,</p>
+      <p class="host-names">Arshad Rashid<br>Amna Arshad<br>Daniyal Ayub</p>
+      <div class="divider"></div>
+      <p class="invitation-copy">For any assistance, please contact</p>
+      <div class="contact-list">
+        <a href="https://wa.me/923323178261" target="_blank" rel="noopener">+92 332 3178261</a>
+        <a href="https://wa.me/923357227454" target="_blank" rel="noopener">+92 335 7227454</a>
+        <a href="https://wa.me/923312151091" target="_blank" rel="noopener">+92 331 2151091</a>
+      </div>
+    </div>
+  </section>
+  <div class="footer">The Grand Celebration · Muhammad &amp; Areeba · 2026</div>
+</div>
 <script>
 document.getElementById('calendarBtn').addEventListener('click', function () {
   const event = [
@@ -86,7 +104,7 @@ document.getElementById('calendarBtn').addEventListener('click', function () {
     'UID:muhammad-areeba-grand-celebration-20261113@example.invalid','DTSTAMP:20261015T000000Z','DTSTART:20261113T143000Z','DTEND:20261113T170000Z',
     'SUMMARY:The Grand Celebration of Muhammad Abdul Rashid & Areeba Fatima','LOCATION:Iconic Marquee, 76 Block 14, Gulistan-e-Johar, Karachi, Pakistan',
     'DESCRIPTION:Gathering time 7:30 PM Pakistan Standard Time.','END:VEVENT','END:VCALENDAR'
-  ].join('\r\n');
+  ].join('\\r\\n');
   const blob = new Blob([event], {type:'text/calendar;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a'); link.href=url; link.download='Muhammad-and-Areeba-Grand-Celebration.ics';
@@ -94,11 +112,6 @@ document.getElementById('calendarBtn').addEventListener('click', function () {
 });
 </script>
 </body>
-</html>"""
+</html>'''
 
-st.markdown(
-    "<div style='text-align:center;color:#657b62;font-size:0.9rem;margin-bottom:0.5rem'>"
-    "🌿 Sage green · Ivory · Botanical invitation</div>",
-    unsafe_allow_html=True,
-)
-components.html(INVITATION_HTML, height=1600, scrolling=True)
+components.html(INVITATION_HTML, height=3300, scrolling=True)
