@@ -86,7 +86,7 @@ document.getElementById('calendarBtn').addEventListener('click', function () {
     'UID:muhammad-areeba-grand-celebration-20261113@example.invalid','DTSTAMP:20261015T000000Z','DTSTART:20261113T143000Z','DTEND:20261113T170000Z',
     'SUMMARY:The Grand Celebration of Muhammad Abdul Rashid & Areeba Fatima','LOCATION:Iconic Marquee, 76 Block 14, Gulistan-e-Johar, Karachi, Pakistan',
     'DESCRIPTION:Gathering time 7:30 PM Pakistan Standard Time.','END:VEVENT','END:VCALENDAR'
-  ].join('\\r\\n');
+  ].join('\r\n');
   const blob = new Blob([event], {type:'text/calendar;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a'); link.href=url; link.download='Muhammad-and-Areeba-Grand-Celebration.ics';
